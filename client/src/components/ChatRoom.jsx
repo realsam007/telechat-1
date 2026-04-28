@@ -4,7 +4,7 @@ import MessageInput from "./MessageInput";
 import Sidebar from "./Sidebar";
 import "./ChatRoom.css";
 
-const SERVER_URL = import.meta.env.VITE_SERVER_URL || "http://localhost:5000";
+
 
 function isSameDay(d1, d2) {
   const a = new Date(d1);
@@ -28,7 +28,7 @@ export default function ChatRoom({ username, room, socket, onLeave }) {
   // ── Fetch message history ─────────────────────────────────────────────────
   useEffect(() => {
     setLoading(true);
-    fetch(`${SERVER_URL}/api/messages/${room}`)
+    fetch(`/api/messages/${room}`)
       .then((r) => r.json())
       .then((data) => {
         if (data.success) {
