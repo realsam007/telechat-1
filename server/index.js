@@ -11,7 +11,7 @@ const app = express();
 const server = http.createServer(app);
 
 // ─── CORS ────────────────────────────────────────────────────────────────────
-const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:5173";
+const CLIENT_URL = process.env.CLIENT_URL || process.env.RENDER_EXTERNAL_URL || "http://localhost:5173";
 
 app.use(
   cors({
